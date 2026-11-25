@@ -34,7 +34,7 @@ export function QuickActions() {
     <nav
       aria-label="Quick contact"
       className={cx(
-        "fixed inset-x-3 bottom-3 z-40 flex divide-x divide-white/20 rounded-sm bg-bordeaux text-white shadow-[0_14px_30px_-10px_rgba(62,15,22,0.6)] transition-transform duration-300 ease-brand md:hidden",
+        "fixed inset-x-3 bottom-3 z-40 flex divide-x divide-white/20 rounded-sm bg-bordeaux text-white shadow-[0_14px_30px_-10px_rgba(116,36,31,0.6)] transition-transform duration-300 ease-brand md:hidden",
         show ? "translate-y-0" : "translate-y-[140%]",
       )}
     >

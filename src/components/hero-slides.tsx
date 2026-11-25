@@ -135,15 +135,15 @@ export function HeroSlides({ slides }: { slides: HeroSlide[] }) {
         {/* Blend into the background: left edge (desktop), bottom edge, light top shade for the header */}
         <div
           aria-hidden
-          className="absolute inset-0 z-[3] hidden bg-[linear-gradient(90deg,#2a0a0f_0%,rgba(42,10,15,0.85)_10%,rgba(42,10,15,0.4)_26%,rgba(42,10,15,0)_46%)] md:block"
+          className="absolute inset-0 z-[3] hidden bg-[linear-gradient(90deg,#34100d_0%,rgba(52,16,13,0.85)_10%,rgba(52,16,13,0.4)_26%,rgba(52,16,13,0)_46%)] md:block"
         />
         <div
           aria-hidden
-          className="absolute inset-0 z-[3] bg-[linear-gradient(0deg,#2a0a0f_0%,rgba(42,10,15,0.7)_20%,rgba(42,10,15,0)_50%)] md:bg-[linear-gradient(0deg,#2a0a0f_0%,rgba(42,10,15,0.3)_14%,rgba(42,10,15,0)_32%)]"
+          className="absolute inset-0 z-[3] bg-[linear-gradient(0deg,#34100d_0%,rgba(52,16,13,0.7)_20%,rgba(52,16,13,0)_50%)] md:bg-[linear-gradient(0deg,#34100d_0%,rgba(52,16,13,0.3)_14%,rgba(52,16,13,0)_32%)]"
         />
         <div
           aria-hidden
-          className="absolute inset-0 z-[3] bg-[linear-gradient(180deg,rgba(42,10,15,0.5)_0%,rgba(42,10,15,0)_20%)]"
+          className="absolute inset-0 z-[3] bg-[linear-gradient(180deg,rgba(52,16,13,0.5)_0%,rgba(52,16,13,0)_20%)]"
         />
       </div>
 
@@ -165,14 +165,14 @@ export function HeroSlides({ slides }: { slides: HeroSlide[] }) {
                 >
                   <p className="label text-[1.125rem]">{s.kicker}</p>
                   <Heading className="display">{s.title}</Heading>
-                  <p className="mt-6 max-w-[34rem] text-[1.0625rem] leading-relaxed text-[#e8dcdd]">{s.text}</p>
+                  <p className="mt-6 max-w-[34rem] text-[1.0625rem] leading-relaxed text-[#eddcd9]">{s.text}</p>
                 </div>
               );
             })}
           </div>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <ButtonLink href="/contacts" variant="primary" className="border-[#8a3541]">
+            <ButtonLink href="/contacts" variant="primary" className="border-[#b0463f]">
               Book a consultation
             </ButtonLink>
             <ButtonLink href="/practice-areas" variant="ghost-light" arrow="→">
@@ -224,7 +224,7 @@ export function HeroSlides({ slides }: { slides: HeroSlide[] }) {
             </button>
           </div>
 
-          <ul className="mt-8 space-y-2 border-t border-white/15 pt-6 text-[0.9375rem] text-[#e3d5d6]">
+          <ul className="mt-8 space-y-2 border-t border-white/15 pt-6 text-[0.9375rem] text-[#ead8d5]">
             {awards.map((a) => (
               <li key={a.title}>
                 <Link href={a.href} className="hover:text-white">

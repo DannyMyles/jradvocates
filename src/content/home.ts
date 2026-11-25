@@ -78,15 +78,15 @@ export const heroSlides: HeroSlide[] = [
     image: "/images/hero/josephine-at-desk.jpg",
     alt: "Josephine Righa working at her desk",
     position: "center 30%",
-    caption: "At work in our Hurlingham offices",
+    caption: "Josephine L. M. Righa at work",
   },
   {
     kicker: "Our values",
     title: "Love and respect for all our clients.",
     text: "Relationships, integrity, passion and excellence guide how we advise, negotiate and represent every client.",
     image: "/images/hero/office-reception.jpg",
-    alt: "Reception of the JR Advocates office at Hurlingham Park",
+    alt: "The JR Advocates sign at the firm’s reception",
     position: "62% center",
-    caption: "Hurlingham Park, Argwings Kodhek Road, Nairobi",
+    caption: "Josephine Righa Advocates, Nairobi",
   },
 ];

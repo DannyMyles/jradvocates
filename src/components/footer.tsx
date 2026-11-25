@@ -76,7 +76,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/15 pt-5 text-[0.8125rem] text-[#a88f92]">
+        <div className="mt-14 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/15 pt-5 text-[0.8125rem] text-[#b0928d]">
           <p>
             © {year} {site.name}. All rights reserved.
           </p>

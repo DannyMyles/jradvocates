@@ -85,7 +85,7 @@ export function WhatsAppWidget() {
         role="dialog"
         aria-label="Chat with us on WhatsApp"
         className={cx(
-          "w-[min(340px,calc(100vw-2rem))] origin-bottom-right overflow-hidden rounded-xl border border-line bg-white text-ink shadow-[0_2px_6px_rgba(28,26,25,0.06),0_24px_60px_-24px_rgba(42,10,15,0.45)] transition-[opacity,scale,visibility] duration-200 ease-brand",
+          "w-[min(340px,calc(100vw-2rem))] origin-bottom-right overflow-hidden rounded-xl border border-line bg-white text-ink shadow-[0_2px_6px_rgba(28,26,25,0.06),0_24px_60px_-24px_rgba(52,16,13,0.45)] transition-[opacity,scale,visibility] duration-200 ease-brand",
           open ? "pointer-events-auto visible scale-100 opacity-100" : "invisible scale-95 opacity-0",
         )}
       >

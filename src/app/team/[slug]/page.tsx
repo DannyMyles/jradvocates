@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getTeamMember, team } from "@/content/team";
 import { getPracticeArea } from "@/content/practice-areas";
 import { Blocks } from "@/components/blocks";
-import { ButtonLink, ContactStrip, Photo, TextLink } from "@/components/ui";
+import { ButtonLink, ContactStrip, Portrait, TextLink } from "@/components/ui";
 import { PhotoHeader } from "@/components/photo-header";
 import { JsonLd, firmId } from "@/lib/structured-data";
 import { site } from "@/lib/site";
@@ -39,7 +39,8 @@ export default async function ProfilePage({ params }: Props) {
           name: m.name,
           jobTitle: m.role,
           url: `${site.url}/team/${m.slug}`,
-          image: `${site.url}${m.image}`,
+          ...(m.image ? { image: `${site.url}${m.image}` } : {}),
+          ...(m.phone ? { telephone: m.phone.replace(/\s/g, "") } : {}),
           worksFor: { "@id": firmId },
           ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
         }}
@@ -49,9 +50,9 @@ export default async function ProfilePage({ params }: Props) {
         kicker={m.role}
         title={m.name}
         intro={m.credentials || undefined}
-        image={m.profileImage}
-        alt={m.name}
-        position="center 22%"
+        image={m.profileImage ?? "/images/photos/team-hero.jpg"}
+        alt={m.profileImage ? m.name : ""}
+        position={m.profileImage ? "center 22%" : "center 40%"}
       >
         <ButtonLink href="/contacts" variant="light">
           Book a consultation
@@ -89,7 +90,38 @@ export default async function ProfilePage({ params }: Props) {
 
           <div>
             {m.summary && <p className="lead mb-8 text-ink">{m.summary}</p>}
-            <Blocks blocks={m.bio} className="text-[1.0625rem]" />
+            {m.bio.length > 0 ? (
+              <Blocks blocks={m.bio} className="text-[1.0625rem]" />
+            ) : (
+              <p className="lead text-ink">
+                {m.name} is a {m.role} at {site.name}.
+              </p>
+            )}
+
+            {(m.phone || m.email) && (
+              <dl className="mt-10 grid gap-6 border-t border-ink pt-6 sm:grid-cols-2">
+                {m.phone && (
+                  <div>
+                    <dt className="text-sm text-stone">Direct line</dt>
+                    <dd className="mt-1 font-serif text-[1.125rem]">
+                      <a href={`tel:${m.phone.replace(/\s/g, "")}`} className="hover:text-bordeaux">
+                        {m.phone}
+                      </a>
+                    </dd>
+                  </div>
+                )}
+                {m.email && (
+                  <div>
+                    <dt className="text-sm text-stone">Email</dt>
+                    <dd className="mt-1 font-serif text-[1.125rem] [overflow-wrap:anywhere]">
+                      <a href={`mailto:${m.email}`} className="hover:text-bordeaux">
+                        {m.email}
+                      </a>
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            )}
 
             {m.timeline.length > 0 && (
               <div className="mt-14">
@@ -130,17 +162,11 @@ export default async function ProfilePage({ params }: Props) {
       <section className="border-t border-line">
         <div className="container-page py-12 md:py-14">
           <h2 className="h3">Also on the team</h2>
-          <ul className="mt-6 grid gap-5 sm:grid-cols-3">
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((o) => (
               <li key={o.slug}>
                 <Link href={`/team/${o.slug}`} className="group flex items-center gap-4">
-                  <Photo
-                    src={o.image}
-                    alt=""
-                    className="aspect-square w-16 flex-none rounded-full"
-                    position="center 20%"
-                    sizes="64px"
-                  />
+                  <Portrait name={o.name} src={o.image} className="aspect-square w-16 flex-none rounded-full" sizes="64px" />
                   <span>
                     <span className="h4 block decoration-bordeaux/40 underline-offset-4 group-hover:text-bordeaux group-hover:underline">
                       {o.name}

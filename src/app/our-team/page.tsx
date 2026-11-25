@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { team } from "@/content/team";
-import { ButtonLink, ContactStrip, Photo, TextLink } from "@/components/ui";
+import { ButtonLink, ContactStrip, Photo, Portrait, TextLink } from "@/components/ui";
 import { PhotoHeader } from "@/components/photo-header";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function TeamPage() {
       <section className="container-page pt-14 md:pt-[72px]">
         <div className="grid items-center gap-8 border-t border-ink pt-10 md:grid-cols-[0.8fr_1.2fr] md:gap-14">
           <Photo
-            src={lead.image}
+            src={lead.image ?? "/images/team/josephine-righa.jpg"}
             alt={lead.name}
             className="aspect-[4/4.4]"
             position="center 18%"
@@ -47,11 +47,11 @@ export default function TeamPage() {
       </section>
 
       <section className="container-page pt-14 pb-14 md:pt-[72px] md:pb-[72px]">
-        <ul className="grid gap-x-6 gap-y-10 border-t border-line pt-10 sm:grid-cols-3">
+        <ul className="grid gap-x-6 gap-y-10 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
           {rest.map((m) => (
             <li key={m.slug}>
               <Link href={`/team/${m.slug}`} className="group block">
-                <Photo src={m.image} alt="" className="aspect-[4/5]" position="center 20%" sizes="(max-width: 640px) 100vw, 33vw" />
+                <Portrait name={m.name} src={m.image} className="aspect-[4/5]" sizes="(max-width: 640px) 100vw, 25vw" />
                 <h2 className="h4 mt-4 decoration-bordeaux/40 underline-offset-4 group-hover:text-bordeaux group-hover:underline">
                   {m.name}
                 </h2>

@@ -5,8 +5,13 @@ export type TeamMember = {
   name: string;
   role: string;
   credentials: string;
-  image: string;
-  profileImage: string;
+  /** Portrait. When missing, a monogram is shown until a photo is supplied. */
+  image?: string;
+  /** Header photo on the profile page (falls back to a neutral firm image). */
+  profileImage?: string;
+  /** Direct contact details, shown on the profile page when present. */
+  phone?: string;
+  email?: string;
   linkedin: string | null;
   /** Optional one-sentence summary shown as the lead; the full `bio` then sits behind "Read full biography". */
   summary?: string;
@@ -93,6 +98,18 @@ export const team: TeamMember[] = [
       "notary-services",
       "contract-negotiation-drafting-and-management"
     ]
+  },
+  {
+    "slug": "joan-musyoka",
+    "name": "Joan Musyoka",
+    "role": "Senior Associate",
+    "credentials": "",
+    "phone": "+254 704 121708",
+    "linkedin": null,
+    "bio": [],
+    "highlights": [],
+    "timeline": [],
+    "focus": []
   },
   {
     "slug": "geoffrey-gitau",

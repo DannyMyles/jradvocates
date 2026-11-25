@@ -4,7 +4,7 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import { useConsent } from "@/lib/consent";
 
-const EMBED = "https://www.google.com/maps?q=Hurlingham+Park,+Argwings+Kodhek+Road,+Nairobi&output=embed";
+const EMBED = "https://www.google.com/maps?q=Enwealth+Business+Centre,+Ngong+Lane,+Nairobi&output=embed";
 
 /**
  * Google map. Google sets cookies, so it loads only after "Accept all" in the cookie notice,
@@ -40,7 +40,7 @@ export function MapEmbed() {
         )}
       </div>
       <figcaption className="mt-3 text-sm text-stone">
-        Hurlingham Park, 3rd Floor, Office Suite B6, Argwings Kodhek Road.{" "}
+        {site.address.building}, next to DoubleTree by Hilton, {site.address.street}.{" "}
         <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="link text-sm">
           Get directions
         </a>

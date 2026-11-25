@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { sectors, values } from "@/lib/site";
 import { team } from "@/content/team";
-import { ContactStrip, Label, Photo, TextLink } from "@/components/ui";
+import { ContactStrip, Label, Portrait, TextLink } from "@/components/ui";
 import { PhotoHeader } from "@/components/photo-header";
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function AboutPage() {
         title="For others it is business. For us, it is personal."
         intro="JR Advocates is an established corporate and commercial law firm operating in Nairobi, Kenya. Our team comprises highly skilled attorneys guaranteed to handle our clients’ legal needs in an experienced and reassuring manner."
         image="/images/hero/office-reception.jpg"
-        alt="Reception of the JR Advocates office at Hurlingham Park"
+        alt="The JR Advocates sign at the firm’s reception"
         position="62% center"
       />
 
@@ -121,11 +121,11 @@ export default function AboutPage() {
             <h2 className="h2">The people behind the firm</h2>
             <TextLink href="/our-team">Meet the team</TextLink>
           </div>
-          <ul className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          <ul className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
             {team.map((m) => (
               <li key={m.slug}>
                 <Link href={`/team/${m.slug}`} className="group block">
-                  <Photo src={m.image} alt="" className="aspect-[4/5]" position="center 20%" sizes="(max-width: 1024px) 50vw, 25vw" />
+                  <Portrait name={m.name} src={m.image} className="aspect-[4/5]" sizes="(max-width: 1024px) 50vw, 20vw" />
                   <p className="h4 mt-3 decoration-bordeaux/40 underline-offset-4 group-hover:text-bordeaux group-hover:underline">
                     {m.name}
                   </p>

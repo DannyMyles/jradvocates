@@ -23,7 +23,7 @@ export async function renderOg({ eyebrow, title }: { eyebrow: string; title: str
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#2a0a0f",
+          background: "#34100d",
           color: "#ffffff",
           padding: "64px 80px",
           fontFamily: "Newsreader",
@@ -32,15 +32,15 @@ export async function renderOg({ eyebrow, title }: { eyebrow: string; title: str
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logoSrc} width={182} height={100} alt="" />
-          <div style={{ display: "flex", fontSize: 26, color: "#cdb9bb" }}>jradvocates.com</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#d8bdb8" }}>jradvocates.com</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 32, color: "#e9d29a", marginBottom: 20 }}>{eyebrow}</div>
           <div style={{ display: "flex", fontSize: size, lineHeight: 1.06, letterSpacing: "-0.02em", maxWidth: 1000 }}>{title}</div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 26, color: "#cdb9bb" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 26, color: "#d8bdb8" }}>
           <div style={{ display: "flex", width: 56, height: 2, background: "#b8892f" }} />
-          Corporate and commercial law firm · Hurlingham Park, Nairobi
+          Corporate and commercial law firm · Ngong Road, Nairobi
         </div>
       </div>
     ),

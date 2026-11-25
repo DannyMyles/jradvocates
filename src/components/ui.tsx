@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cx } from "@/lib/format";
+import { cx, initials } from "@/lib/format";
 import { site } from "@/lib/site";
 
 function isExternal(href: string) {
@@ -103,6 +103,33 @@ export function Photo({
   );
 }
 
+/** A person's photo, or a monogram on sand when no photo has been supplied yet. */
+export function Portrait({
+  name,
+  src,
+  className,
+  sizes,
+  position = "center 20%",
+  priority,
+}: {
+  name: string;
+  src?: string;
+  className?: string;
+  sizes?: string;
+  position?: string;
+  priority?: boolean;
+}) {
+  if (src) return <Photo src={src} alt="" className={className} position={position} sizes={sizes} priority={priority} />;
+  const letters = initials(name);
+  return (
+    <div className={cx("media grid place-items-center bg-sand [container-type:inline-size]", className)} aria-hidden>
+      <span className="font-display text-[28cqw] leading-none tracking-[0.02em] text-bordeaux/80">
+        {letters}
+      </span>
+    </div>
+  );
+}
+
 export type Crumb = { href?: string; label: string };
 
 export function Breadcrumbs({ items, dark }: { items: Crumb[]; dark?: boolean }) {
@@ -184,10 +211,10 @@ export function ContactStrip({ title = "Speak to us about your matter" }: { titl
             <dt className="text-sm text-stone">Visit</dt>
             <dd className="mt-1.5 font-serif text-lg">
               <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bordeaux">
-                Hurlingham Park, Suite B6
+                {site.address.building}
               </a>
             </dd>
-            <dd className="mt-1 text-sm text-stone">Argwings Kodhek Road, Nairobi</dd>
+            <dd className="mt-1 text-sm text-stone">{site.address.street}, Nairobi</dd>
           </div>
         </dl>
       </div>

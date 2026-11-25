@@ -48,7 +48,7 @@ export function NewsletterForm() {
           required
           autoComplete="email"
           placeholder="Your email address"
-          className="min-w-0 flex-1 bg-transparent px-3 py-2.5 text-[0.9375rem] text-white placeholder:text-[#bfa9ab] focus:outline-none"
+          className="min-w-0 flex-1 bg-transparent px-3 py-2.5 text-[0.9375rem] text-white placeholder:text-[#c4aaa5] focus:outline-none"
         />
         {/* honeypot: bots fill this, people never see it */}
         <input type="text" name="company" tabIndex={-1} autoComplete="off" className="absolute -left-[10000px] h-px w-px" aria-hidden />

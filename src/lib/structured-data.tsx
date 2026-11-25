@@ -26,7 +26,7 @@ export function firmSchema() {
     email: site.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Hurlingham Park, 3rd Floor, Office Suite B6, Argwings Kodhek Road",
+      streetAddress: "Enwealth Business Centre, 4th Floor, Ngong Lane, off Ngong Road",
       addressLocality: "Nairobi",
       addressRegion: "Nairobi",
       addressCountry: "KE",

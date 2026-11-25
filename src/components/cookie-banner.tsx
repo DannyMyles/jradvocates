@@ -40,7 +40,7 @@ export function CookieBanner() {
       ref={ref}
       role="region"
       aria-label="Cookie notice"
-      className="fixed inset-x-3 bottom-3 z-[55] animate-fade-up rounded-xl border border-line bg-white p-5 text-ink shadow-[0_2px_6px_rgba(28,26,25,0.06),0_24px_60px_-24px_rgba(42,10,15,0.45)] sm:p-6 md:right-auto md:bottom-6 md:left-6 md:max-w-[440px]"
+      className="fixed inset-x-3 bottom-3 z-[55] animate-fade-up rounded-xl border border-line bg-white p-5 text-ink shadow-[0_2px_6px_rgba(28,26,25,0.06),0_24px_60px_-24px_rgba(52,16,13,0.45)] sm:p-6 md:right-auto md:bottom-6 md:left-6 md:max-w-[440px]"
     >
       <p className="font-serif text-[1.25rem] leading-tight">Cookies on this site</p>
       <p className="mt-2 text-[0.9375rem] leading-relaxed text-body">

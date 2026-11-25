@@ -116,7 +116,7 @@ export default function JoinPage() {
               <a href={`mailto:${site.email}`} className="link">
                 {site.email}
               </a>
-              , or post it to the Relationship Manager, {site.name}, Hurlingham Park Building, Office B6, off Argwings Kodhek Road,{" "}
+              , or post it to the Relationship Manager, {site.name}, {site.address.building}, {site.address.street},{" "}
               {site.address.postal}. Only shortlisted applicants will be contacted.
             </p>
             <ButtonLink href={`mailto:${site.email}?subject=Application`} variant="primary" className="mt-7">

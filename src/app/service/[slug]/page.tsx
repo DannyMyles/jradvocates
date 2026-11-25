@@ -123,7 +123,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="border-t border-ink pt-5">
               <div className="flex items-center gap-4">
                 <span className="relative h-16 w-16 flex-none overflow-hidden rounded-full">
-                  <Image src={lead.image} alt="" fill sizes="64px" className="object-cover object-top" />
+                  <Image src={lead.image ?? "/images/team/josephine-righa.jpg"} alt="" fill sizes="64px" className="object-cover object-top" />
                 </span>
                 <div>
                   <p className="h4">{lead.name}</p>
