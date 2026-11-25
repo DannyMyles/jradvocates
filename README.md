@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JR Advocates website
 
-## Getting Started
+Next.js 15 (App Router) + Tailwind CSS v4 rebuild of jradvocates.com. All existing pages, content and URLs are kept.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # fill in SMTP + Mailchimp (see below)
+npm run dev                  # http://localhost:3000
+npm run build && npm start   # production
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+| --- | --- |
+| Firm details (phone, address, hours, social links, values, awards, sectors) | `src/lib/site.ts` |
+| Practice areas (15), with full page text | `src/content/practice-areas.ts` |
+| Team profiles | `src/content/team.ts` |
+| Insights articles | `src/content/insights.ts` |
+| Home page copy and testimonials | `src/content/home.ts` |
+| Open job roles (Join Us) | `openRoles` in `src/app/join-us/page.tsx` |
+| Brand tokens (colours, fonts, radii) and shared classes (`.btn`, `.label`, `.h1`…) | `src/app/globals.css` (`@theme` + `@layer components`) |
+| Images | `public/images/{brand,team,practice,insights,photos,icons}` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Long-form text is stored as simple blocks (`p`, `h2`, `h3`, `ul`, `ol`, `link`) and rendered by
+`src/components/blocks.tsx`. No raw HTML is injected. To add an article, add an entry to `insights`
+(newest first) and drop its image in `public/images/insights/`.
 
-## Learn More
+## URLs
 
-To learn more about Next.js, take a look at the following resources:
+Same paths as the WordPress site: `/about-us`, `/practice-areas`, `/service/<slug>`, `/our-team`,
+`/team/<slug>`, `/insights`, `/updates-announcements/<slug>`, `/opinions-and-analysis/<slug>`,
+`/join-us`, `/contacts`. Old links with a trailing slash redirect automatically. `sitemap.xml` and
+`robots.txt` are generated.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Forms
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Contact** (`/api/contact`) sends an email over SMTP (`SMTP_*`, `CONTACT_TO`, `CONTACT_FROM`). Without
+  SMTP settings it returns a friendly "please email or call us" message instead of failing silently.
+- **Newsletter** (`/api/newsletter`) adds the address to the Mailchimp audience
+  (`MAILCHIMP_API_KEY`, `MAILCHIMP_AUDIENCE_ID`) as *pending*, so Mailchimp sends its confirmation email.
+- Both have a honeypot field and a simple per-IP rate limit (`src/lib/rate-limit.ts`, in-memory per instance).
 
-## Deploy on Vercel
+`?area=<practice-slug>` on `/contacts` pre-selects the "Area of need" field (used by practice-area pages).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Any Node 20+ host works (Vercel, or `npm run build && npm start` behind nginx/pm2). Set
+`NEXT_PUBLIC_SITE_URL` to the live domain so metadata and the sitemap use the right URLs.
