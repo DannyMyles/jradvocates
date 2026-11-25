@@ -1,42 +1,307 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================================================
+   JR Advocates design tokens
+   Bordeaux #601822 primary · logo gold for awards only
+   Libre Caslon (display/text) + Public Sans (UI/body)
+   ========================================================= */
+@theme {
+  --color-bordeaux: #601822;
+  --color-bordeaux-deep: #3e0f16;
+  --color-oxblood: #2a0a0f;
+  --color-blush: #f4e9ea;
+  --color-ivory: #faf7f2;
+  --color-sand: #efe9e2;
+  --color-ink: #1c1a19;
+  --color-stone: #6b6461;
+  --color-body: #4a4442;
+  --color-line: #e6e0da;
+  --color-gold: #b8892f;
+  --color-gold-light: #e9d29a;
+  --color-muted-dark: #cdb9bb;
+
+  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-public-sans), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+
+  --ease-brand: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --animate-fade-up: fade-up 0.4s var(--ease-brand);
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   html {
-    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-base leading-[1.65] text-ink antialiased;
+    font-kerning: normal;
+    font-feature-settings: "kern", "liga", "calt";
+    text-rendering: optimizeLegibility;
+  }
+  /* Newsreader's optical-size axis: display forms at large sizes, text forms at small. */
+  .font-serif,
+  .font-display {
+    font-optical-sizing: auto;
+  }
+  p,
+  li,
+  blockquote,
+  figcaption {
+    text-wrap: pretty;
+  }
+  /* Tailwind v4 no longer gives buttons a pointer cursor; restore it for anything clickable. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+  :focus-visible {
+    @apply rounded-xs outline-2 outline-offset-3 outline-bordeaux;
+  }
+  .on-dark :focus-visible {
+    @apply outline-gold-light;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Reusable component classes: kept small, everything else is utilities. */
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1440px] px-5 md:px-8 xl:px-11;
+  }
+  .section {
+    @apply py-14 md:py-[72px];
+  }
+
+  /* type */
+  .display {
+    @apply font-display text-[clamp(2.75rem,5.2vw,4.9rem)] leading-[1.02] font-normal tracking-[-0.022em] text-pretty;
+  }
+  .h1 {
+    @apply font-display text-[clamp(2.3rem,4.4vw,3.9rem)] leading-[1.05] font-normal tracking-[-0.018em] text-balance;
+  }
+  .h2 {
+    @apply font-display text-[clamp(1.85rem,3vw,2.7rem)] leading-[1.1] font-normal tracking-[-0.012em] text-balance;
+  }
+  .h3 {
+    @apply font-serif text-[1.4rem] leading-[1.28] font-normal tracking-[-0.005em];
+  }
+  .h4 {
+    @apply font-serif text-lg leading-[1.35] font-normal;
+  }
+  .lead {
+    @apply font-serif text-[1.25rem] leading-[1.55] text-[#3d3735];
+  }
+  /* small italic kicker above headings */
+  .label {
+    @apply mb-3 block text-[1.0625rem] text-bordeaux italic;
+    font-family: var(--font-newsreader-italic), var(--font-newsreader), Georgia, serif;
+    font-optical-sizing: auto;
+  }
+  .on-dark .label {
+    @apply text-gold-light;
+  }
+
+  /* buttons */
+  /* Pill buttons; an optional round arrow badge sits at the right end (see ButtonLink). */
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-ink px-6 py-2 text-[0.9375rem] font-semibold whitespace-nowrap text-ink transition-colors duration-200 hover:bg-ink hover:text-white disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn:has(.btn-badge) {
+    @apply pr-2 pl-6;
+  }
+  .btn-badge {
+    @apply inline-grid h-8 w-8 flex-none place-items-center rounded-full bg-blush text-sm leading-none text-bordeaux transition-[translate,background-color,color] duration-200;
+  }
+  .btn:hover .btn-badge {
+    @apply translate-x-0.5 bg-white/15 text-white;
+  }
+  .btn-primary .btn-badge,
+  .btn-ghost-light .btn-badge {
+    @apply bg-white/18 text-white;
+  }
+  .btn-light .btn-badge,
+  .btn-light:hover .btn-badge {
+    @apply bg-blush text-bordeaux;
+  }
+  /* round icon-only button (carousel arrows) */
+  .btn-round {
+    @apply inline-grid h-12 w-12 place-items-center rounded-full border border-ink text-lg transition-colors enabled:hover:bg-ink enabled:hover:text-white disabled:cursor-not-allowed disabled:opacity-35;
+  }
+  .btn-primary {
+    @apply border-bordeaux bg-bordeaux text-white hover:border-bordeaux-deep hover:bg-bordeaux-deep;
+  }
+  .btn-light {
+    @apply border-white bg-white text-bordeaux hover:bg-ivory hover:text-bordeaux-deep;
+  }
+  .btn-ghost-light {
+    @apply border-white/55 text-white hover:border-white hover:bg-white hover:text-bordeaux;
+  }
+
+  .link {
+    @apply text-[0.9375rem] font-medium text-bordeaux underline decoration-bordeaux/35 underline-offset-4 transition-colors hover:decoration-bordeaux;
+  }
+
+  /* media frame used for every photo */
+  .media {
+    @apply relative overflow-hidden rounded-sm bg-sand;
+  }
+  .media img {
+    @apply object-cover;
+  }
+
+  /* chips */
+  .chip {
+    @apply rounded-xs border border-line bg-white px-3.5 py-2 text-sm font-medium text-stone transition-colors hover:border-bordeaux hover:text-bordeaux aria-pressed:border-bordeaux aria-pressed:bg-bordeaux aria-pressed:text-white;
+  }
+
+  /* Form fields: softly rounded (10px, between the 3px photos and the pill buttons).
+     A light border plus a faint warm fill keeps each field visible; hover darkens the
+     border and focus adds the Bordeaux ring, so the active field is always unmistakable. */
+  .input {
+    @apply block min-h-[52px] w-full rounded-[10px] border border-[#ddd5cc] bg-[#fdfbf8] px-4 py-3 text-base leading-snug text-ink shadow-[inset_0_1px_1px_rgba(28,26,25,0.03)] transition-[border-color,box-shadow,background-color] duration-150 placeholder:text-[#9a9089] hover:border-[#b3a89e] focus:border-bordeaux focus:bg-white focus:shadow-[0_0_0_4px_rgba(96,24,34,0.1)] focus:outline-none focus-visible:outline-none aria-invalid:border-[#c4545c] aria-invalid:bg-[#fffafa] aria-invalid:focus:shadow-[0_0_0_4px_rgba(163,38,47,0.12)];
+  }
+  textarea.input {
+    @apply min-h-[148px] resize-y leading-relaxed;
+  }
+  select.input {
+    @apply cursor-pointer appearance-none bg-[length:12px] bg-[position:right_1.1rem_center] bg-no-repeat pr-11;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%23601822' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  select.input:invalid,
+  select.input:has(option[value=""]:checked) {
+    @apply text-[#958b83];
+  }
+  select.input option {
+    @apply text-ink;
+  }
+  .field-label {
+    @apply text-[0.875rem] font-medium text-ink;
+  }
+  .field-hint {
+    @apply font-normal text-stone;
+  }
+  .field-error {
+    @apply flex items-center gap-1.5 text-[0.8125rem] text-[#a3262f];
+  }
+  /* custom checkbox in the same language as the inputs */
+  .check {
+    @apply relative mt-0.5 h-5 w-5 flex-none cursor-pointer appearance-none rounded-[5px] border border-[#c2b8ae] bg-white transition-colors hover:border-[#8f857b] focus-visible:shadow-[0_0_0_4px_rgba(96,24,34,0.12)] focus-visible:outline-none checked:border-bordeaux checked:bg-bordeaux aria-invalid:border-[#a3262f];
+  }
+  .check:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5.5 10.5 8.5 13.5 14.5 7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 100%;
+  }
+
+  /* long-form content (articles, practice areas, bios) */
+  .prose-jr {
+    @apply max-w-[68ch] text-[#3d3735];
+  }
+  .prose-jr > * + * {
+    @apply mt-[1.1em];
+  }
+  .prose-jr h2,
+  .prose-jr h3 {
+    @apply mt-[1.8em] font-serif leading-[1.3] text-ink;
+  }
+  .prose-jr h2 {
+    @apply text-[1.6rem];
+  }
+  .prose-jr h3 {
+    @apply text-[1.3rem];
+  }
+  .prose-jr ul,
+  .prose-jr ol {
+    @apply pl-5;
+  }
+  .prose-jr ul {
+    @apply list-disc;
+  }
+  .prose-jr ol {
+    @apply list-decimal;
+  }
+  .prose-jr li + li {
+    @apply mt-1.5;
+  }
+  .prose-jr li::marker {
+    @apply text-bordeaux;
+  }
+}
+
+/* Hero slider keyframes. Kept outside @theme: Tailwind only emits @theme keyframes that an --animate-* token uses.
+   Photos travel the full panel width; text moves a short distance and fades. */
+@keyframes slide-in-from-right { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes slide-in-from-left { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes slide-out-to-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@keyframes slide-out-to-right { from { transform: translateX(0); } to { transform: translateX(100%); } }
+@keyframes text-in-from-right { from { opacity: 0; transform: translateX(56px); } to { opacity: 1; transform: none; } }
+@keyframes text-in-from-left { from { opacity: 0; transform: translateX(-56px); } to { opacity: 1; transform: none; } }
+@keyframes text-out-to-left { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(-56px); } }
+@keyframes text-out-to-right { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(56px); } }
+@keyframes hero-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* WhatsApp button: lifts above the mobile quick bar or cookie notice, whichever is showing (both publish their height).
+   Moved with a transform, not `bottom`, so the movement never counts as a layout shift. */
+.wa-dock {
+  transform: translateY(calc(-1 * max(var(--quickbar-h, 0px), var(--cookiebar-h, 0px))));
+  transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (min-width: 768px) {
+  .wa-dock {
+    transform: none;
+  }
+}
+
+/* WhatsApp button attention cue: a soft "breath" and a single ring every 4.5s, still the rest of the time. */
+@keyframes wa-breathe {
+  0%, 68%, 100% { transform: scale(1); }
+  76% { transform: scale(1.09); }
+  84% { transform: scale(0.97); }
+  91% { transform: scale(1.03); }
+}
+@keyframes wa-ring {
+  0%, 68% { transform: scale(1); opacity: 0; }
+  70% { opacity: 0.5; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+.wa-attention {
+  animation: wa-breathe 4.5s ease-in-out infinite;
+}
+.wa-attention::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #1da851;
+  z-index: -1;
+  animation: wa-ring 4.5s ease-out infinite;
+}
+.wa-attention:hover,
+.wa-attention:hover::before {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-attention,
+  .wa-attention::before {
+    animation: none;
   }
 }
