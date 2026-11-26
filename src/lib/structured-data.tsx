@@ -26,7 +26,7 @@ export function firmSchema() {
     email: site.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Enwealth Business Centre, 4th Floor, Ngong Lane, off Ngong Road",
+      streetAddress: "Enwealth Business Center, 4th Floor, Ngong Lane, off Ngong Road",
       addressLocality: "Nairobi",
       addressRegion: "Nairobi",
       addressCountry: "KE",

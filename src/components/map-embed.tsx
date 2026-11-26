@@ -4,7 +4,7 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import { useConsent } from "@/lib/consent";
 
-const EMBED = "https://www.google.com/maps?q=Enwealth+Business+Centre,+Ngong+Lane,+Nairobi&output=embed";
+const EMBED = "https://www.google.com/maps?q=Enwealth+Business+Center,+Ngong+Lane,+Nairobi&output=embed";
 
 /**
  * Google map. Google sets cookies, so it loads only after "Accept all" in the cookie notice,

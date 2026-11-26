@@ -14,13 +14,13 @@ export const site = {
   email: "enquiries@jradvocates.com",
   relationshipEmail: "relationshipmanager@jradvocates.com",
   address: {
-    lines: ["Enwealth Business Centre, 4th Floor", "Next to DoubleTree by Hilton, Ngong Lane, off Ngong Road", "Nairobi, Kenya"],
-    short: "Enwealth Business Centre, 4th Floor, Nairobi",
+    lines: ["Enwealth Business Center, 4th Floor", "Next to DoubleTree by Hilton, Ngong Lane, off Ngong Road", "Nairobi, Kenya"],
+    short: "Enwealth Business Center, 4th Floor, Nairobi",
     /** Short form for tight spaces. */
-    building: "Enwealth Business Centre, 4th Floor",
+    building: "Enwealth Business Center, 4th Floor",
     street: "Ngong Lane, off Ngong Road",
     postal: "P. O. Box 76123-00508, Nairobi",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Enwealth+Business+Centre,+Ngong+Lane,+Nairobi",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Enwealth+Business+Center,+Ngong+Lane,+Nairobi",
   },
   hours: {
     label: "Monday – Friday · 8am – 5pm",
