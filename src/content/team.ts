@@ -9,7 +9,7 @@ export type TeamMember = {
   image?: string;
   /** Header photo on the profile page (falls back to a neutral firm image). */
   profileImage?: string;
-  /** Headline experience, shown on profile headers and team cards (e.g. "6+ years of experience"). */
+  /** Headline experience, shown on profile headers and team cards (e.g. "20+ years of experience"). */
   experience?: string;
   /** Academic qualifications, shown on the profile page. */
   qualifications?: { title: string; detail?: string }[];
@@ -156,7 +156,7 @@ export const team: TeamMember[] = [
       },
       {
         "type": "p",
-        "text": "CPA Gitau, has over 14 years’ wealth of experience in Accounting, Auditing, Tax Advisory and Finance and can efficiently explain tax laws and strategies in a way that is accessible and easy for JR Advocates clients to understand."
+        "text": "CPA Gitau, has over 20 years’ wealth of experience in Accounting, Auditing, Tax Advisory and Finance and can efficiently explain tax laws and strategies in a way that is accessible and easy for JR Advocates clients to understand."
       },
       {
         "type": "p",
@@ -169,7 +169,7 @@ export const team: TeamMember[] = [
       "banking-and-finance",
       "investments-law"
     ],
-    "experience": "6+ years of experience"
+    "experience": "20+ years of experience"
   },
   {
     "slug": "salome-n-kariuki-relationship-manager",
@@ -182,7 +182,7 @@ export const team: TeamMember[] = [
     "bio": [
       {
         "type": "p",
-        "text": "Ms. Kariuki is a personable and astute relationship manager with over 10 years’ experience working in busy legal environments. The highly organized professional has excelled in providing unparalleled support to cross-functional teams with the aim to increase customer satisfaction through process improvements."
+        "text": "Ms. Kariuki is a personable and astute relationship manager with over 16 years’ experience working in busy legal environments. The highly organized professional has excelled in providing unparalleled support to cross-functional teams with the aim to increase customer satisfaction through process improvements."
       },
       {
         "type": "p",
@@ -208,7 +208,7 @@ export const team: TeamMember[] = [
     "highlights": [],
     "timeline": [],
     "focus": [],
-    "experience": "6+ years of experience"
+    "experience": "16+ years of experience"
   }
 ];
 
