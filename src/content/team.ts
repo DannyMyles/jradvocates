@@ -69,6 +69,9 @@ export const team: TeamMember[] = [
       }
     ],
     "highlights": [
+      "CPM (MTI)",
+      "LL.B",
+      "Dip. KSL",
       "Notary Public",
       "Commissioner for Oaths",
       "Registered Patent Agent (KIPI)",
@@ -99,16 +102,6 @@ export const team: TeamMember[] = [
     ],
     "focus": [],
     "experience": "18+ years of legal work experience",
-    "qualifications": [
-      {
-        "title": "LL.B",
-        "detail": "Bachelor of Laws, Catholic University of Eastern Africa (2008)"
-      },
-      {
-        "title": "Dip. KSL",
-        "detail": "Post-Graduate Diploma in Law, Kenya School of Law (2011)"
-      }
-    ],
     "awards": [
       {
         "year": "2023",

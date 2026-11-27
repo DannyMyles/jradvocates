@@ -50,7 +50,7 @@ export default function JoinPage() {
         <div className={row}>
           <h2 className="h3">Our culture</h2>
           <div className="max-w-2xl space-y-4 text-[1.0625rem] text-body">
-            <p className="lead text-ink">
+            <p>
               Our team comprises well-rounded, innovative people with bright legal minds who uphold the virtues of love and
               respect in all they do.
             </p>

@@ -108,7 +108,7 @@ export default async function ProfilePage({ params }: Props) {
           <div>
             <h2 className={sectionHeading}>Profile</h2>
             <div className="mt-4 space-y-4">
-              {m.summary && <p className={`${bodyText} font-medium text-ink`}>{m.summary}</p>}
+              {m.summary && <p className={bodyText}>{m.summary}</p>}
               {m.bio.length > 0 ? (
                 <Blocks blocks={m.bio} className={`${bodyText} max-w-none`} />
               ) : (
