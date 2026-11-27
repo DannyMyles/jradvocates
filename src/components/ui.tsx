@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cx, initials } from "@/lib/format";
 import { site } from "@/lib/site";
+import { IconBadge, MailIcon, MapPinIcon, PhoneIcon } from "./icons";
 
 function isExternal(href: string) {
   return href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("http");
@@ -219,8 +220,13 @@ export function ContactStrip({ title = "Speak to Us About Your Matter" }: { titl
         </div>
         <dl className="grid gap-8 sm:grid-cols-3 sm:gap-6">
           <div className="border-t border-[#d6ccc2] pt-4">
-            <dt className="text-sm text-stone">Call</dt>
-            <dd className="mt-1.5 font-serif text-lg">
+            <dt className="flex items-center gap-3 text-sm text-stone">
+              <IconBadge>
+                <PhoneIcon />
+              </IconBadge>
+              Call
+            </dt>
+            <dd className="mt-3 font-serif text-lg">
               <a href={site.phoneHref} className="hover:text-bordeaux">
                 {site.phone}
               </a>
@@ -228,16 +234,26 @@ export function ContactStrip({ title = "Speak to Us About Your Matter" }: { titl
             <dd className="mt-1 text-sm text-stone">{site.hours.label}</dd>
           </div>
           <div className="border-t border-[#d6ccc2] pt-4">
-            <dt className="text-sm text-stone">Email</dt>
-            <dd className="mt-1.5 font-serif text-lg [overflow-wrap:anywhere]">
+            <dt className="flex items-center gap-3 text-sm text-stone">
+              <IconBadge>
+                <MailIcon />
+              </IconBadge>
+              Email
+            </dt>
+            <dd className="mt-3 font-serif text-lg [overflow-wrap:anywhere]">
               <a href={`mailto:${site.email}`} className="hover:text-bordeaux">
                 {site.email}
               </a>
             </dd>
           </div>
           <div className="border-t border-[#d6ccc2] pt-4">
-            <dt className="text-sm text-stone">Visit</dt>
-            <dd className="mt-1.5 font-serif text-lg">
+            <dt className="flex items-center gap-3 text-sm text-stone">
+              <IconBadge>
+                <MapPinIcon />
+              </IconBadge>
+              Visit
+            </dt>
+            <dd className="mt-3 font-serif text-lg">
               <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bordeaux">
                 {site.address.building}
               </a>

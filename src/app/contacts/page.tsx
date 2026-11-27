@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { ContactForm } from "@/components/contact-form";
 import { OpenNow } from "@/components/open-now";
 import { MapEmbed } from "@/components/map-embed";
+import { ClockIcon, IconBadge, MailboxIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
 import { PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -11,9 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default function ContactsPage() {
-  const details: { label: string; body: React.ReactNode }[] = [
+  const details: { label: string; icon: React.ReactNode; body: React.ReactNode }[] = [
     {
       label: "Office",
+      icon: <MapPinIcon />,
       body: (
         <>
           {site.address.lines.map((l) => (
@@ -24,9 +26,10 @@ export default function ContactsPage() {
         </>
       ),
     },
-    { label: "Telephone", body: <a href={site.phoneHref}>{site.phone}</a> },
+    { label: "Telephone", icon: <PhoneIcon />, body: <a href={site.phoneHref}>{site.phone}</a> },
     {
       label: "Email",
+      icon: <MailIcon />,
       body: (
         <a href={`mailto:${site.email}`} className="block">
           {site.email}
@@ -35,6 +38,7 @@ export default function ContactsPage() {
     },
     {
       label: "Office hours",
+      icon: <ClockIcon />,
       body: (
         <>
           {site.hours.label.replace(" · ", ", ")}
@@ -42,7 +46,7 @@ export default function ContactsPage() {
         </>
       ),
     },
-    { label: "Postal address", body: site.address.postal },
+    { label: "Postal address", icon: <MailboxIcon />, body: site.address.postal },
   ];
 
   return (
@@ -57,8 +61,11 @@ export default function ContactsPage() {
           <dl className="space-y-6">
             {details.map((d) => (
               <div key={d.label}>
-                <dt className="text-sm text-stone">{d.label}</dt>
-                <dd className="mt-1 font-serif text-[1.125rem] leading-snug [overflow-wrap:anywhere] [&_a]:decoration-bordeaux/40 [&_a]:underline-offset-4 [&_a:hover]:text-bordeaux [&_a:hover]:underline">
+                <dt className="flex items-center gap-4 text-sm text-stone">
+                  <IconBadge>{d.icon}</IconBadge>
+                  {d.label}
+                </dt>
+                <dd className="-mt-2.5 pl-14 font-serif text-[1.125rem] leading-snug [overflow-wrap:anywhere] [&_a]:decoration-bordeaux/40 [&_a]:underline-offset-4 [&_a:hover]:text-bordeaux [&_a:hover]:underline">
                   {d.body}
                 </dd>
               </div>
