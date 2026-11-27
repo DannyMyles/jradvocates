@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
     qualities: [75, 90],
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      // Caroline M. Kinyua has left the firm (client revision 25/11/2026); send old links to the team page.
+      { source: "/team/caroline-m-kinyua", destination: "/our-team", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

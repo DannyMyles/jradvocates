@@ -8,7 +8,7 @@ import { insights } from "@/content/insights";
 import { Testimonials } from "@/components/testimonials";
 import { HeroSlides } from "@/components/hero-slides";
 import { InsightRow } from "@/components/insight-card";
-import { ContactStrip, Label, Photo, TextLink } from "@/components/ui";
+import { ContactStrip, Label, Photo, TextLink, ValueTitle } from "@/components/ui";
 
 const latest = [
   insights[0],
@@ -47,11 +47,10 @@ export default function Home() {
                   i === values.length - 1 && "lg:pr-0",
                 )}
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-display text-[2.6rem] leading-none text-bordeaux">{v.letter}</span>
-                  <Image src={v.icon} alt="" width={44} height={44} className="h-11 w-11" />
-                </div>
-                <h3 className="h4 mt-4">{v.title}</h3>
+                <Image src={v.icon} alt="" width={44} height={44} className="h-11 w-11" />
+                <h3 className="h4 mt-5">
+                  <ValueTitle title={v.title} />
+                </h3>
                 <p className="mt-2 text-[0.9375rem] text-stone">{v.text}</p>
               </li>
             ))}
@@ -101,7 +100,7 @@ export default function Home() {
               We bring to the table a combination of deep industry knowledge and expert perspectives from other industries.
             </p>
           </div>
-          <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {practiceGroups.map((g) => (
               <div key={g.id} className="border-t border-ink pt-5">
                 <h3 className="text-sm font-medium text-stone">{g.label}</h3>

@@ -19,9 +19,11 @@ export type PracticeArea = {
 
 export const practiceGroups: { id: PracticeGroup; label: string; short: string }[] = [
   { id: "corporate", label: "Corporate and Commercial", short: "Corporate" },
+  { id: "governance", label: "Governance and Audit", short: "Governance" },
   { id: "finance", label: "Finance and Investment", short: "Finance" },
   { id: "people", label: "People and Property", short: "People & Property" },
   { id: "advisory", label: "Advisory and Resolution", short: "Advisory" },
+  { id: "other", label: "Other Services", short: "Other" },
 ];
 
 export const practiceAreas: PracticeArea[] = [
@@ -43,65 +45,6 @@ export const practiceAreas: PracticeArea[] = [
           "Compliance and company secretarial: JR Advocates also provides compliance and company secretarial services to any trading entity: – be it effecting resignation or appointments of officials, increase of share capital, allotment and transfer of shares, drafting and filing of annual returns, restructures, procuring of CR12’s or any other compliance issues required.",
           "Insolvency and winding down of companies."
         ]
-      }
-    ]
-  },
-  {
-    "slug": "corporate-governance-advisory",
-    "title": "Corporate Governance Advisory",
-    "group": "corporate",
-    "summary": "Board structures, charters and governance frameworks.",
-    "image": "/images/practice/corporate-governance-advisory.jpg",
-    "body": [
-      {
-        "type": "p",
-        "text": "JR Advocates understands the various mechanisms, relations, and processes by which an organization is controlled and directed. Corporate governance involves balancing the various interests of stakeholders in any organization."
-      },
-      {
-        "type": "p",
-        "text": "Some of our advocates have been professionally trained by the Center of Corporate Governance and the Institute of Directors to provide unmatched guidance and advisory services to boards of directors, board committees and the management of a company."
-      },
-      {
-        "type": "p",
-        "text": "Our corporate governance services cover a wide scope ranging from:"
-      },
-      {
-        "type": "ul",
-        "items": [
-          "Drafting of board charters and related documents",
-          "Providing company secretarial services to boards",
-          "Advising boards, committees, management and leadership as relates to their legal and fiduciary obligations",
-          "Sitting as your legal advisers in the Board of Directors",
-          "Governance audits",
-          "Dispute resolution as may arise from time to time."
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "audits-hr-legal-and-corporate-governance",
-    "title": "Audits – HR, Legal and Corporate Governance",
-    "group": "corporate",
-    "summary": "Independent HR, legal and governance audits that surface risk early.",
-    "image": "/images/practice/audits-hr-legal-and-corporate-governance.jpg",
-    "body": [
-      {
-        "type": "p",
-        "text": "With our vast expertise, JR Advocates are well trained and equipped to execute the audits below:"
-      }
-    ],
-    "helps": [
-      {
-        "title": "Legal Audit",
-        "text": "A thorough appraisal of an organization’s operations to determine its compliance with the laws and regulations that apply to it. JR Advocates does check the company’s performance against the legal compliance standards and identify areas where an organization needs to adhereto in a bid to minimize the possibility of legal issues disrupting an organization’s effectiveness and growth."
-      },
-      {
-        "title": "HR Audit",
-        "text": "This is limited only to the HR function of a company. Together with our certified HR consultant, JR Advocates shall review the current human resources policies, procedures, documentation and systems to identify needs for improvement and enhancement of the HR function as well as to assess compliance with the ever-changing rules and regulations."
-      },
-      {
-        "title": "Corporate Governance Audit",
-        "text": "Limited to the governance of an organization, JR Advocates does an objective review of how an organization’s governance structure and operations in a bid to assess whether there are in place adequate checks and balances for effective governance."
       }
     ]
   },
@@ -134,6 +77,138 @@ export const practiceAreas: PracticeArea[] = [
       },
       {
         "title": "Resolving contract disputes"
+      }
+    ]
+  },
+  {
+    "slug": "intellectual-property",
+    "title": "Intellectual Property",
+    "group": "corporate",
+    "summary": "Protecting trademarks, copyright, patents and innovation.",
+    "image": "/images/practice/intellectual-property.jpg",
+    "body": [
+      {
+        "type": "p",
+        "text": "We live in a fast-paced world – technology, inventions, and innovation have become a critical aspect of our businesses."
+      },
+      {
+        "type": "p",
+        "text": "JR Advocates understands the invaluable nature of any creation of your mind be it product and service innovations and inventions, literary and artistic works, or trade names and marks including your logo."
+      },
+      {
+        "type": "p",
+        "text": "We are knowledgeable and experienced legal advisers who understand the different legal solutions required to protect the various creations. Our Intellectual Property services include: –"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "IP due diligence",
+          "Trademark protection and renewals",
+          "Patent protection",
+          "Industrial Designs protection",
+          "Copyright protection",
+          "Franchising"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "We act for both local and international clients looking for national protection in Kenya and other countries in Africa through our established network of associate agent law firms."
+      }
+    ]
+  },
+  {
+    "slug": "audits-hr-legal-and-corporate-governance",
+    "title": "Audit",
+    "group": "governance",
+    "summary": "Independent HR, legal and governance audits that surface risk early.",
+    "image": "/images/practice/audits-hr-legal-and-corporate-governance.jpg",
+    "body": [
+      {
+        "type": "p",
+        "text": "With our vast expertise, JR Advocates are well trained and equipped to execute the audits below:"
+      }
+    ],
+    "helps": [
+      {
+        "title": "Legal Audit",
+        "text": "A thorough appraisal of an organization’s operations to determine its compliance with the laws and regulations that apply to it. JR Advocates does check the company’s performance against the legal compliance standards and identify areas where an organization needs to adhereto in a bid to minimize the possibility of legal issues disrupting an organization’s effectiveness and growth."
+      },
+      {
+        "title": "HR Audit",
+        "text": "This is limited only to the HR function of a company. Together with our certified HR consultant, JR Advocates shall review the current human resources policies, procedures, documentation and systems to identify needs for improvement and enhancement of the HR function as well as to assess compliance with the ever-changing rules and regulations."
+      },
+      {
+        "title": "Corporate Governance Audit",
+        "text": "Limited to the governance of an organization, JR Advocates does an objective review of how an organization’s governance structure and operations in a bid to assess whether there are in place adequate checks and balances for effective governance."
+      }
+    ]
+  },
+  {
+    "slug": "corporate-governance-advisory",
+    "title": "Corporate Governance Advisory",
+    "group": "governance",
+    "summary": "Board structures, charters and governance frameworks.",
+    "image": "/images/practice/corporate-governance-advisory.jpg",
+    "body": [
+      {
+        "type": "p",
+        "text": "JR Advocates understands the various mechanisms, relations, and processes by which an organization is controlled and directed. Corporate governance involves balancing the various interests of stakeholders in any organization."
+      },
+      {
+        "type": "p",
+        "text": "Some of our advocates have been professionally trained by the Center of Corporate Governance and the Institute of Directors to provide unmatched guidance and advisory services to boards of directors, board committees and the management of a company."
+      },
+      {
+        "type": "p",
+        "text": "Our corporate governance services cover a wide scope ranging from:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Drafting of board charters and related documents",
+          "Providing company secretarial services to boards",
+          "Advising boards, committees, management and leadership as relates to their legal and fiduciary obligations",
+          "Sitting as your legal advisers in the Board of Directors",
+          "Governance audits",
+          "Dispute resolution as may arise from time to time."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "company-secretarial-services",
+    "title": "Company Secretarial Services",
+    "group": "governance",
+    "summary": "Statutory filings, share changes and board support for any trading entity.",
+    "image": "/images/insights/compliance.jpg",
+    "body": [
+      {
+        "type": "p",
+        "text": "JR Advocates also provides compliance and company secretarial services to any trading entity: – be it effecting resignation or appointments of officials, increase of share capital, allotment and transfer of shares, drafting and filing of annual returns, restructures, procuring of CR12’s or any other compliance issues required."
+      },
+      {
+        "type": "p",
+        "text": "As part of our corporate governance practice, we also provide company secretarial services to boards."
+      }
+    ],
+    "helps": [
+      {
+        "title": "Appointment and resignation of officials"
+      },
+      {
+        "title": "Increase of share capital"
+      },
+      {
+        "title": "Allotment and transfer of shares"
+      },
+      {
+        "title": "Drafting and filing of annual returns"
+      },
+      {
+        "title": "Company restructures"
+      },
+      {
+        "title": "Procuring CR12s"
       }
     ]
   },
@@ -199,42 +274,6 @@ export const practiceAreas: PracticeArea[] = [
           "Fund finance",
           "Real estate finance"
         ]
-      }
-    ]
-  },
-  {
-    "slug": "intellectual-property",
-    "title": "Intellectual Property",
-    "group": "finance",
-    "summary": "Protecting trademarks, copyright, patents and innovation.",
-    "image": "/images/practice/intellectual-property.jpg",
-    "body": [
-      {
-        "type": "p",
-        "text": "We live in a fast-paced world – technology, inventions, and innovation have become a critical aspect of our businesses."
-      },
-      {
-        "type": "p",
-        "text": "JR Advocates understands the invaluable nature of any creation of your mind be it product and service innovations and inventions, literary and artistic works, or trade names and marks including your logo."
-      },
-      {
-        "type": "p",
-        "text": "We are knowledgeable and experienced legal advisers who understand the different legal solutions required to protect the various creations. Our Intellectual Property services include: –"
-      },
-      {
-        "type": "ul",
-        "items": [
-          "IP due diligence",
-          "Trademark protection and renewals",
-          "Patent protection",
-          "Industrial Designs protection",
-          "Copyright protection",
-          "Franchising"
-        ]
-      },
-      {
-        "type": "p",
-        "text": "We act for both local and international clients looking for national protection in Kenya and other countries in Africa through our established network of associate agent law firms."
       }
     ]
   },
@@ -408,7 +447,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     "slug": "notary-services",
     "title": "Notary Services",
-    "group": "advisory",
+    "group": "other",
     "summary": "Authenticating business and transactional documents for use in and outside Kenya.",
     "image": "/images/practice/notary-services.jpg",
     "body": [
@@ -421,7 +460,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     "slug": "training",
     "title": "Training",
-    "group": "advisory",
+    "group": "other",
     "summary": "Tailor-made legal and governance training for teams and individuals.",
     "image": "/images/practice/training.jpg",
     "body": [
@@ -437,6 +476,19 @@ export const practiceAreas: PracticeArea[] = [
           "Employment and Labor Laws",
           "Contract drafting and reviews process; among others"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "commissioner-for-oaths",
+    "title": "Commissioner for Oaths",
+    "group": "other",
+    "summary": "Administering oaths and commissioning affidavits and statutory declarations.",
+    "image": "/images/insights/registration.jpg",
+    "body": [
+      {
+        "type": "p",
+        "text": "Our Managing Partner, Josephine Righa, is a commissioner for oaths. We administer oaths and commission affidavits and statutory declarations for use in legal, business and personal matters."
       }
     ]
   }

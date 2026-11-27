@@ -12,7 +12,6 @@ export const site = {
   whatsapp: "254758957997",
   whatsappGreeting: "Hello JR Advocates, I would like to make an enquiry.",
   email: "enquiries@jradvocates.com",
-  relationshipEmail: "relationshipmanager@jradvocates.com",
   address: {
     lines: ["Enwealth Business Center, 4th Floor", "Next to DoubleTree by Hilton, Ngong Lane, off Ngong Road", "Nairobi, Kenya"],
     short: "Enwealth Business Center, 4th Floor, Nairobi",
@@ -48,34 +47,34 @@ export const nav = [
   { href: "/join-us", label: "Join Us" },
 ] as const;
 
+/** Sectors served (client revision, 25/11/2026). */
 export const sectors = [
   "Small-Medium Enterprises",
-  "Hospitality and Recreation",
-  "Tours and Travel",
-  "Fashion and Beauty",
   "Industrial and Manufacturing",
-  "Private Equity",
   "Trade",
   "Fintech",
   "Telecommunications, Media and Technology",
   "Banks and Financial Institutions",
-  "Real Estate",
-  "Building and Construction",
   "Not-For-Profit Organizations",
-  "Funds and Investment Management",
+  "Energy and Mining",
+  "Oil and Gas",
+  "Real Estate and Construction",
+  "Tourism and Hospitality",
+  "Private Investment",
+  "Churches and Ministries",
 ] as const;
 
 export const values = [
   {
     letter: "R",
     icon: "/images/icons/relationships.png",
-    title: "Building Relationships",
+    title: "Relationship Building",
     text: "Lasting partnerships with clients across every industry we serve.",
   },
   {
     letter: "I",
     icon: "/images/icons/integrity.png",
-    title: "Highest Standards of Integrity",
+    title: "Integrity of the Highest Standard",
     text: "Integrity, justice and fairness guide how we advise and represent every client.",
   },
   {
@@ -87,7 +86,7 @@ export const values = [
   {
     letter: "E",
     icon: "/images/icons/excellence.png",
-    title: "Excellence in all we do",
+    title: "Excellence in All We Do",
     text: "Personalised legal services with a problem-solving approach.",
   },
 ] as const;

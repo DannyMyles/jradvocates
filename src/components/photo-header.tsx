@@ -50,7 +50,7 @@ export function PhotoHeader({
           <Breadcrumbs dark items={crumbs} />
           {kicker && <p className="label text-[1.0625rem]">{kicker}</p>}
           <h1 className="h1">{title}</h1>
-          {intro && <div className="mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-[#eddcd9]">{intro}</div>}
+          {intro && <div className="justify-body mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-[#eddcd9]">{intro}</div>}
           {children && <div className="mt-8 flex flex-wrap items-center gap-3">{children}</div>}
         </div>
       </div>

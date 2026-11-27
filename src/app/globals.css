@@ -209,6 +209,22 @@
     background-size: 100%;
   }
 
+  /* Justified body copy (client revision 25/11/2026). Paragraphs only: headings, captions, labels and
+     list rows stay left-aligned. Applied from 640px up: in narrow phone columns justification opens large
+     gaps between words, so phones keep left-aligned text for readability. Hyphenation evens word spacing. */
+  @media (min-width: 640px) {
+    .prose-jr p,
+    .prose-jr li,
+    p.text-body,
+    .text-body p,
+    p.lead,
+    .justify-body {
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+  }
+
   /* long-form content (articles, practice areas, bios) */
   .prose-jr {
     @apply max-w-[68ch] text-[#3d3735];

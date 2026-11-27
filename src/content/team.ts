@@ -9,6 +9,12 @@ export type TeamMember = {
   image?: string;
   /** Header photo on the profile page (falls back to a neutral firm image). */
   profileImage?: string;
+  /** Headline experience, shown on profile headers and team cards (e.g. "6+ years of experience"). */
+  experience?: string;
+  /** Academic qualifications, shown on the profile page. */
+  qualifications?: { title: string; detail?: string }[];
+  /** Awards and recognitions, shown on the profile page. */
+  awards?: { year: string; text: string }[];
   /** Direct contact details, shown on the profile page when present. */
   phone?: string;
   email?: string;
@@ -35,11 +41,15 @@ export const team: TeamMember[] = [
     "bio": [
       {
         "type": "p",
-        "text": "Ms. Righa, has about 10 years of work experience, having graduated in the year 2008 with a Bachelors of Laws Degree from the Catholic University of Eastern Africa. She thereafter worked for Coca-Cola Central East & West Africa Limited as a Legal Assistant for the years 2009 to 2010."
+        "text": "Ms. Righa has over 18 years of legal work experience, having graduated in the year 2008 with a Bachelors of Laws Degree from the Catholic University of Eastern Africa. She thereafter worked for Coca-Cola Central East & West Africa Limited as a Legal Assistant for the years 2009 to 2010."
       },
       {
         "type": "p",
         "text": "In the year 2011, Ms. Righa pursued her Bar studies and now holds a Post-Graduate Diploma in Law from Kenya School of Law. She did her pupillage with the firm of Igeria and Ngugi Advocates and was promoted to Associate position upon her admission to the Bar in the year 2012. In the year 2014, she was promoted as a Senior Associate and the head of the Corporate and Commercial Practice of the firm, a position she held until July 2019."
+      },
+      {
+        "type": "p",
+        "text": "In 2019, she founded JR Advocates, where she is the Managing Partner. In June 2024, she joined Jaguar Petroleum Limited as COO, doubling up as Head of Legal of the JPL Group structure."
       },
       {
         "type": "p",
@@ -67,36 +77,47 @@ export const team: TeamMember[] = [
     ],
     "timeline": [
       {
-        "year": "2008",
-        "text": "LL.B, Catholic University of Eastern Africa"
+        "year": "2024 – To date",
+        "text": "COO / Head of Legal, Jaguar Petroleum Limited"
       },
       {
-        "year": "2009 – 2010",
-        "text": "Legal Assistant, Coca-Cola Central East & West Africa"
-      },
-      {
-        "year": "2011",
-        "text": "Post-Graduate Diploma in Law, Kenya School of Law"
-      },
-      {
-        "year": "2012",
-        "text": "Associate, Igeria & Ngugi Advocates"
+        "year": "2019 – To date",
+        "text": "Founder and Managing Partner, JR Advocates"
       },
       {
         "year": "2014 – 2019",
-        "text": "Senior Associate and Head of Corporate and Commercial Practice"
+        "text": "Senior Associate and Head of Corporate and Commercial Practice, Igeria & Ngugi Advocates"
+      },
+      {
+        "year": "2012 – 2014",
+        "text": "Associate, Igeria & Ngugi Advocates"
+      },
+      {
+        "year": "2009 – 2010",
+        "text": "Legal Assistant, Coca-Cola Central East & West Africa Limited"
+      }
+    ],
+    "focus": [],
+    "experience": "18+ years of legal work experience",
+    "qualifications": [
+      {
+        "title": "LL.B",
+        "detail": "Bachelor of Laws, Catholic University of Eastern Africa (2008)"
+      },
+      {
+        "title": "Dip. KSL",
+        "detail": "Post-Graduate Diploma in Law, Kenya School of Law (2011)"
+      }
+    ],
+    "awards": [
+      {
+        "year": "2023",
+        "text": "Nominated, Commercial Practitioner of the Year, Nairobi Legal Awards"
       },
       {
         "year": "2023",
-        "text": "Nominated for Commercial Practitioner of the Year, Nairobi Legal Awards"
+        "text": "Recognised among the Top 100 Commercial Lawyers in Kenya, The Lawyer Africa"
       }
-    ],
-    "focus": [
-      "corporate-governance-advisory",
-      "mediation",
-      "intellectual-property",
-      "notary-services",
-      "contract-negotiation-drafting-and-management"
     ]
   },
   {
@@ -109,7 +130,8 @@ export const team: TeamMember[] = [
     "bio": [],
     "highlights": [],
     "timeline": [],
-    "focus": []
+    "focus": [],
+    "experience": "6+ years of experience"
   },
   {
     "slug": "geoffrey-gitau",
@@ -146,7 +168,8 @@ export const team: TeamMember[] = [
     "focus": [
       "banking-and-finance",
       "investments-law"
-    ]
+    ],
+    "experience": "6+ years of experience"
   },
   {
     "slug": "salome-n-kariuki-relationship-manager",
@@ -184,37 +207,8 @@ export const team: TeamMember[] = [
     ],
     "highlights": [],
     "timeline": [],
-    "focus": []
-  },
-  {
-    "slug": "caroline-m-kinyua",
-    "name": "Caroline M. Kinyua",
-    "role": "Front Office / Legal Secretary",
-    "credentials": "",
-    "image": "/images/team/caroline-kinyua.jpg",
-    "profileImage": "/images/team/caroline-kinyua.jpg",
-    "linkedin": "https://bit.ly/3vNBrtE",
-    "bio": [
-      {
-        "type": "p",
-        "text": "Ms. Kinyua’s is the warm personality you encounter at the reception of Josephine Righa Advocates. She is polite, friendly and exceptionally passionate about serving people. She has excellent communication and listening skills which enable her to communicate effectively both face-to-face and in writing."
-      },
-      {
-        "type": "p",
-        "text": "She has impeccable computer skills, attention to detail, the retention and retrieval of a human post-it-note which skills enable her to perform other administrative roles such as dispensing petty cash, internal book keeping, facility management amongst other responsibilities."
-      },
-      {
-        "type": "p",
-        "text": "Ms. Kinyua holds various managerial Certificates from Kenya Institute of Management (KIM) as well as Temple College."
-      },
-      {
-        "type": "p",
-        "text": "She has previously worked with reputable companies and institutions where her roles armed her with immense experience in interpersonal and clients’ relations which skills make her an invaluable member of our team."
-      }
-    ],
-    "highlights": [],
-    "timeline": [],
-    "focus": []
+    "focus": [],
+    "experience": "6+ years of experience"
   }
 ];
 

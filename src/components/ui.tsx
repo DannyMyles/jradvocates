@@ -75,6 +75,34 @@ export function TextLink({ href, children, className }: { href: string; children
   );
 }
 
+/**
+ * A R.I.P.E. value title with its initial set bold in the brand red, so each letter visibly
+ * maps to its value (e.g. "Relationship Building" reads as the R).
+ */
+export function ValueTitle({ title, className }: { title: string; className?: string }) {
+  return (
+    <span className={className}>
+      <span className="mr-[0.04em] font-display text-[1.45em] leading-none font-bold text-bordeaux">{title[0]}</span>
+      {title.slice(1)}
+    </span>
+  );
+}
+
+/** "R.I.P.E." with each initial bold in the brand red. */
+export function RipeMark({ className }: { className?: string }) {
+  return (
+    <span className={cx("font-display whitespace-nowrap", className)}>
+      <span className="sr-only">R.I.P.E.</span>
+      {["R", "I", "P", "E"].map((l) => (
+        <span key={l} aria-hidden>
+          <span className="font-bold text-bordeaux">{l}</span>
+          <span className="text-stone">.</span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 /** Small italic kicker above a heading. */
 export function Label({ children, className }: { children: React.ReactNode; className?: string }) {
   return <p className={cx("label", className)}>{children}</p>;
@@ -123,7 +151,7 @@ export function Portrait({
   const letters = initials(name);
   return (
     <div className={cx("media grid place-items-center bg-sand [container-type:inline-size]", className)} aria-hidden>
-      <span className="font-display text-[28cqw] leading-none tracking-[0.02em] text-bordeaux/80">
+      <span className="font-display text-[28cqw] leading-none tracking-[0.02em] text-bordeaux">
         {letters}
       </span>
     </div>

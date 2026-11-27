@@ -4,4 +4,4 @@ export type Block =
   | { type: "ul" | "ol"; items: string[] }
   | { type: "link"; text: string; href: string };
 
-export type PracticeGroup = "corporate" | "finance" | "people" | "advisory";
+export type PracticeGroup = "corporate" | "governance" | "finance" | "people" | "advisory" | "other";

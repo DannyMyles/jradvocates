@@ -28,14 +28,9 @@ export default function ContactsPage() {
     {
       label: "Email",
       body: (
-        <>
-          <a href={`mailto:${site.email}`} className="block">
-            {site.email}
-          </a>
-          <a href={`mailto:${site.relationshipEmail}`} className="block">
-            {site.relationshipEmail}
-          </a>
-        </>
+        <a href={`mailto:${site.email}`} className="block">
+          {site.email}
+        </a>
       ),
     },
     {

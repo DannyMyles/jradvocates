@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { sectors, values } from "@/lib/site";
 import { team } from "@/content/team";
-import { ContactStrip, Label, Portrait, TextLink } from "@/components/ui";
+import { ContactStrip, Label, Portrait, TextLink, RipeMark, ValueTitle } from "@/components/ui";
 import { PhotoHeader } from "@/components/photo-header";
 
 export const metadata: Metadata = {
@@ -66,8 +66,7 @@ export default function AboutPage() {
             <h2 className="h2">Founded on love and respect.</h2>
             <p className="mt-5 text-body">
               At JR Advocates, our values are founded on the key pillars of love and respect, for God, ourselves, colleagues,
-              clients and our work. Love and respect fuel the values we sum up as R.I.P.E: Relationships, Integrity, Passion and
-              Excellence.
+              clients and our work. Love and respect fuel everything we do, and we aim to be <RipeMark className="text-[1.1em]" />
             </p>
             <figure className="relative mt-8 aspect-[16/9] overflow-hidden rounded-sm">
               <Image
@@ -80,20 +79,19 @@ export default function AboutPage() {
               <div aria-hidden className="absolute inset-0 bg-bordeaux mix-blend-multiply opacity-25" />
             </figure>
           </div>
-          <dl className="grid gap-x-10 sm:grid-cols-2">
+          <ol className="border-b border-[#d6ccc2]" aria-label="Our values, R.I.P.E.">
             {values.map((v) => (
-              <div key={v.letter} className="border-t border-[#d6ccc2] py-6">
-                <dt className="flex items-center gap-3">
-                  <Image src={v.icon} alt="" width={40} height={40} className="h-10 w-10 flex-none" />
-                  <span aria-hidden className="font-display text-[2.2rem] leading-none text-bordeaux">
-                    {v.letter}
-                  </span>
-                  <span className="h4">{v.title}</span>
-                </dt>
-                <dd className="mt-2 text-[0.9375rem] text-body">{v.text}</dd>
-              </div>
+              <li key={v.letter} className="grid grid-cols-[48px_1fr] items-start gap-x-5 border-t border-[#d6ccc2] py-6">
+                <Image src={v.icon} alt="" width={48} height={48} className="mt-1 h-12 w-12" />
+                <div>
+                  <h3 className="h3">
+                    <ValueTitle title={v.title} />
+                  </h3>
+                  <p className="mt-2 text-body">{v.text}</p>
+                </div>
+              </li>
             ))}
-          </dl>
+          </ol>
         </div>
       </section>
 
@@ -121,7 +119,7 @@ export default function AboutPage() {
             <h2 className="h2">The people behind the firm</h2>
             <TextLink href="/our-team">Meet the team</TextLink>
           </div>
-          <ul className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
+          <ul className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
             {team.map((m) => (
               <li key={m.slug}>
                 <Link href={`/team/${m.slug}`} className="group block">
@@ -130,6 +128,7 @@ export default function AboutPage() {
                     {m.name}
                   </p>
                   <p className="text-sm text-stone">{m.role}</p>
+                  {m.experience && <p className="mt-0.5 text-sm font-semibold text-bordeaux">{m.experience}</p>}
                 </Link>
               </li>
             ))}

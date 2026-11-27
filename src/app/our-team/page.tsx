@@ -37,6 +37,7 @@ export default function TeamPage() {
             <p className="text-sm text-stone">Managing Partner</p>
             <h2 className="h2 mt-2">{lead.name}</h2>
             <p className="mt-1 text-stone">{lead.credentials}</p>
+            {lead.experience && <p className="mt-2 text-sm font-semibold tracking-wide text-bordeaux">{lead.experience}</p>}
             {lead.summary && <p className="lead mt-6 max-w-xl">{lead.summary}</p>}
             <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
               <ButtonLink href={`/team/${lead.slug}`}>Read her profile</ButtonLink>
@@ -47,7 +48,7 @@ export default function TeamPage() {
       </section>
 
       <section className="container-page pt-14 pb-14 md:pt-[72px] md:pb-[72px]">
-        <ul className="grid gap-x-6 gap-y-10 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-x-6 gap-y-10 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((m) => (
             <li key={m.slug}>
               <Link href={`/team/${m.slug}`} className="group block">
@@ -57,6 +58,7 @@ export default function TeamPage() {
                 </h2>
               </Link>
               <p className="text-sm text-stone">{m.role}</p>
+              {m.experience && <p className="mt-0.5 text-sm font-semibold text-bordeaux">{m.experience}</p>}
               {m.linkedin && <TextLink href={m.linkedin} className="mt-2 inline-block text-sm">LinkedIn</TextLink>}
             </li>
           ))}

@@ -11,6 +11,16 @@ import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
+/** One body style and one section-heading style for every profile, so typography never mismatches. */
+const bodyText = "text-[1.0625rem] leading-[1.75] text-body";
+const sectionHeading = "h3";
+
+/** "18+ years of legal work experience" -> { figure: "18+", label: "years of legal work experience" } */
+function splitExperience(experience?: string) {
+  const m = experience?.match(/^(\S+)\s+(.*)$/);
+  return m ? { figure: m[1], label: m[2] } : null;
+}
+
 export function generateStaticParams() {
   return team.map((m) => ({ slug: m.slug }));
 }
@@ -29,6 +39,7 @@ export default async function ProfilePage({ params }: Props) {
   if (!m) notFound();
   const focus = m.focus.map((s) => getPracticeArea(s)).filter((p) => p !== undefined);
   const others = team.filter((t) => t.slug !== m.slug);
+  const exp = splitExperience(m.experience);
 
   return (
     <>
@@ -49,7 +60,17 @@ export default async function ProfilePage({ params }: Props) {
         crumbs={[{ href: "/", label: "Home" }, { href: "/our-team", label: "Our Team" }, { label: m.name }]}
         kicker={m.role}
         title={m.name}
-        intro={m.credentials || undefined}
+        intro={
+          <>
+            {exp && (
+              <p className="flex items-baseline gap-3">
+                <span className="font-display text-[2.6rem] leading-none text-gold-light">{exp.figure}</span>
+                <span className="text-[1.0625rem] text-white">{exp.label}</span>
+              </p>
+            )}
+            {m.credentials && <p className="mt-3 text-[#eddcd9]">{m.credentials}</p>}
+          </>
+        }
         image={m.profileImage ?? "/images/photos/team-hero.jpg"}
         alt={m.profileImage ? m.name : ""}
         position={m.profileImage ? "center 22%" : "center 40%"}
@@ -73,88 +94,116 @@ export default async function ProfilePage({ params }: Props) {
         <div className={m.highlights.length > 0 ? "grid gap-10 md:grid-cols-[0.75fr_1.5fr] md:gap-16" : "max-w-3xl"}>
           {m.highlights.length > 0 && (
             <div>
-              <div className="md:sticky md:top-28">
-                {m.highlights.length > 0 && (
-                  <div className="border-t border-ink pt-5">
-                    <h2 className="text-sm font-medium text-stone">Credentials</h2>
-                    <ul className="mt-3 space-y-2 font-serif text-[1.0625rem]">
-                      {m.highlights.map((h) => (
-                        <li key={h}>{h}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              <div className="border-t border-ink pt-5 md:sticky md:top-28">
+                <h2 className={sectionHeading}>Credentials</h2>
+                <ul className={`mt-4 space-y-2 ${bodyText}`}>
+                  {m.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           )}
 
           <div>
-            {m.summary && <p className="lead mb-8 text-ink">{m.summary}</p>}
-            {m.bio.length > 0 ? (
-              <Blocks blocks={m.bio} className="text-[1.0625rem]" />
-            ) : (
-              <p className="lead text-ink">
-                {m.name} is a {m.role} at {site.name}.
-              </p>
-            )}
+            <h2 className={sectionHeading}>Profile</h2>
+            <div className="mt-4 space-y-4">
+              {m.summary && <p className={`${bodyText} font-medium text-ink`}>{m.summary}</p>}
+              {m.bio.length > 0 ? (
+                <Blocks blocks={m.bio} className={`${bodyText} max-w-none`} />
+              ) : (
+                <p className={bodyText}>
+                  {m.name} is a {m.role} at {site.name}.
+                </p>
+              )}
+            </div>
 
-            {(m.phone || m.email) && (
-              <dl className="mt-10 grid gap-6 border-t border-ink pt-6 sm:grid-cols-2">
-                {m.phone && (
-                  <div>
-                    <dt className="text-sm text-stone">Direct line</dt>
-                    <dd className="mt-1 font-serif text-[1.125rem]">
-                      <a href={`tel:${m.phone.replace(/\s/g, "")}`} className="hover:text-bordeaux">
-                        {m.phone}
-                      </a>
-                    </dd>
-                  </div>
-                )}
-                {m.email && (
-                  <div>
-                    <dt className="text-sm text-stone">Email</dt>
-                    <dd className="mt-1 font-serif text-[1.125rem] [overflow-wrap:anywhere]">
-                      <a href={`mailto:${m.email}`} className="hover:text-bordeaux">
-                        {m.email}
-                      </a>
-                    </dd>
-                  </div>
-                )}
-              </dl>
-            )}
-
-            {m.timeline.length > 0 && (
-              <div className="mt-14">
-                <h2 className="h3">Career</h2>
-                <table className="mt-5 w-full border-t border-ink text-left text-[0.9375rem]">
-                  <tbody>
-                    {m.timeline.map((t) => (
-                      <tr key={t.year} className="border-b border-line align-top">
-                        <th scope="row" className="w-32 py-3.5 pr-6 font-medium whitespace-nowrap">
-                          {t.year}
-                        </th>
-                        <td className="py-3.5 text-body">{t.text}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
-            {focus.length > 0 && (
+            {m.qualifications && m.qualifications.length > 0 && (
               <div className="mt-12">
-                <h2 className="h3">Practice focus</h2>
-                <ul className="mt-4 space-y-2">
-                  {focus.map((p) => (
-                    <li key={p.slug}>
-                      <TextLink href={`/service/${p.slug}`} className="font-serif text-[1.0625rem]">
-                        {p.title}
-                      </TextLink>
+                <h2 className={sectionHeading}>Academic qualifications</h2>
+                <ul className="mt-4 border-t border-ink">
+                  {m.qualifications.map((q) => (
+                    <li key={q.title} className="grid gap-1 border-b border-line py-3.5 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                      <span className="font-semibold text-ink">{q.title}</span>
+                      {q.detail && <span className={bodyText}>{q.detail}</span>}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
+
+            {m.timeline.length > 0 && (
+              <div className="mt-12">
+                <h2 className={sectionHeading}>Career history</h2>
+                <ol className="mt-4 border-t border-ink">
+                  {m.timeline.map((t) => (
+                    <li key={t.year + t.text} className="grid gap-1 border-b border-line py-3.5 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                      <span className="font-semibold whitespace-nowrap text-ink">{t.year}</span>
+                      <span className={bodyText}>{t.text}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
+            {m.awards && m.awards.length > 0 && (
+              <div className="mt-12">
+                <h2 className={sectionHeading}>Awards and recognition</h2>
+                <ul className="mt-4 border-t border-ink">
+                  {m.awards.map((a) => (
+                    <li key={a.text} className="grid gap-1 border-b border-line py-3.5 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                      <span className="font-semibold text-ink">{a.year}</span>
+                      <span className={bodyText}>{a.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {(m.phone || m.email) && (
+              <div className="mt-12">
+                <h2 className={sectionHeading}>Direct contact</h2>
+                <dl className="mt-4 grid gap-6 border-t border-ink pt-5 sm:grid-cols-2">
+                  {m.phone && (
+                    <div>
+                      <dt className="text-sm text-stone">Direct line</dt>
+                      <dd className={`mt-1 ${bodyText} text-ink`}>
+                        <a href={`tel:${m.phone.replace(/\s/g, "")}`} className="hover:text-bordeaux">
+                          {m.phone}
+                        </a>
+                      </dd>
+                    </div>
+                  )}
+                  {m.email && (
+                    <div>
+                      <dt className="text-sm text-stone">Email</dt>
+                      <dd className={`mt-1 ${bodyText} text-ink [overflow-wrap:anywhere]`}>
+                        <a href={`mailto:${m.email}`} className="hover:text-bordeaux">
+                          {m.email}
+                        </a>
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+              </div>
+            )}
+
+            {focus.length > 0 && (
+              <div className="mt-12">
+                <h2 className={sectionHeading}>Practice focus</h2>
+                <ul className="mt-4 space-y-2">
+                  {focus.map((p) => (
+                    <li key={p.slug}>
+                      <TextLink href={`/service/${p.slug}`}>{p.title}</TextLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <p className="mt-14">
+              <TextLink href="/our-team">← Back to Our Team</TextLink>
+            </p>
           </div>
         </div>
       </section>
@@ -162,7 +211,7 @@ export default async function ProfilePage({ params }: Props) {
       <section className="border-t border-line">
         <div className="container-page py-12 md:py-14">
           <h2 className="h3">Also on the team</h2>
-          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {others.map((o) => (
               <li key={o.slug}>
                 <Link href={`/team/${o.slug}`} className="group flex items-center gap-4">
