@@ -91,11 +91,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Practice areas: a plain index of all 15 */}
+      {/* Practice areas: a plain index of every area, grouped */}
       <section className="section">
         <div className="container-page">
           <div className="grid gap-6 md:grid-cols-[1fr_1.2fr] md:gap-16">
-            <h2 className="h2">Practice areas</h2>
+            <h2 className="h2">Practice Areas</h2>
             <p className="text-body md:pt-3">
               We bring to the table a combination of deep industry knowledge and expert perspectives from other industries.
             </p>

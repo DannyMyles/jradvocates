@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="container-page grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-16">
           <div>
             <Label>Our values</Label>
-            <h2 className="h2">Founded on love and respect.</h2>
+            <h2 className="h2">Founded on Love and Respect.</h2>
             <p className="mt-5 text-body">
               At JR Advocates, our values are founded on the key pillars of love and respect, for God, ourselves, colleagues,
               clients and our work. Love and respect fuel everything we do, and we aim to be <RipeMark className="text-[1.1em]" />
@@ -98,7 +98,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr] md:gap-16">
           <div>
-            <h2 className="h2">Sectors we serve</h2>
+            <h2 className="h2">Sectors We Serve</h2>
             <p className="mt-4 text-body">
               We pride ourselves in building lasting partnerships by working with industry players across many sectors.
             </p>
@@ -116,7 +116,7 @@ export default function AboutPage() {
       <section className="section border-t border-line">
         <div className="container-page">
           <div className="flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="h2">The people behind the firm</h2>
+            <h2 className="h2">The People Behind the Firm</h2>
             <TextLink href="/our-team">Meet the team</TextLink>
           </div>
           <ul className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">

@@ -84,7 +84,7 @@ export default async function ServicePage({ params }: Props) {
 
             {helps.length > 0 && (
               <div className="mt-12">
-                <h2 className="h3">How we help</h2>
+                <h2 className="h3">How We Help</h2>
                 <ul className={cx("mt-5 grid gap-x-10 border-t border-ink", helps.some((h) => h.text) ? "" : "sm:grid-cols-2")}>
                   {helps.map((h) => (
                     <li key={h.title} className="border-b border-line py-4">
@@ -98,7 +98,7 @@ export default async function ServicePage({ params }: Props) {
 
             {area.faqs && area.faqs.length > 0 && (
               <div className="mt-12">
-                <h2 className="h3">Frequently asked questions</h2>
+                <h2 className="h3">Frequently Asked Questions</h2>
                 <div className="mt-4">
                   <Accordion items={area.faqs.map((f) => ({ title: f.q, content: <p>{f.a}</p> }))} defaultOpen={null} />
                 </div>
@@ -107,7 +107,7 @@ export default async function ServicePage({ params }: Props) {
 
             {articles.length > 0 && (
               <div className="mt-14">
-                <h2 className="h3">Related insights</h2>
+                <h2 className="h3">Related Insights</h2>
                 <ul className="mt-4 border-b border-line">
                   {articles.map((a) => (
                     <li key={a.slug}>
@@ -144,7 +144,7 @@ export default async function ServicePage({ params }: Props) {
 
             {related.length > 0 && (
               <div className="border-t border-ink pt-5">
-                <h2 className="text-sm font-medium text-stone">Related practice areas</h2>
+                <h2 className="text-sm font-medium text-stone">Related Practice Areas</h2>
                 <ul className="mt-3 space-y-2.5">
                   {related.map((r) => (
                     <li key={r.slug}>

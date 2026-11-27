@@ -11,5 +11,5 @@ export function generateStaticParams() {
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const m = getTeamMember((await params).slug);
-  return renderOg({ eyebrow: m?.role ?? "Our team", title: m?.name ?? "Our team" });
+  return renderOg({ eyebrow: m?.role ?? "Our Team", title: m?.name ?? "Our Team" });
 }

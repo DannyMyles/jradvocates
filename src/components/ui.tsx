@@ -206,7 +206,7 @@ export function PageHeader({
 }
 
 /** Closing block on most pages: how to reach the firm, stated plainly. */
-export function ContactStrip({ title = "Speak to us about your matter" }: { title?: string }) {
+export function ContactStrip({ title = "Speak to Us About Your Matter" }: { title?: string }) {
   return (
     <section className="relative overflow-hidden bg-sand">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/images/brand/pattern.png)] bg-[length:720px] opacity-[0.35]" />

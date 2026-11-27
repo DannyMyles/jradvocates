@@ -23,7 +23,7 @@ export default function InsightsPage() {
       <section className="container-page pt-4 pb-14 md:pb-[72px]">
         <InsightsBrowser />
       </section>
-      <ContactStrip title="Need advice on any of these topics?" />
+      <ContactStrip title="Need Advice on Any of These Topics?" />
     </>
   );
 }

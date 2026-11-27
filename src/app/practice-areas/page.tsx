@@ -17,7 +17,7 @@ export default function PracticeAreasPage() {
       <PhotoHeader
         crumbs={[{ href: "/", label: "Home" }, { label: "Practice Areas" }]}
         kicker={`${practiceAreas.length} areas of practice across ${practiceGroups.length} groups`}
-        title="Practice areas"
+        title="Practice Areas"
         intro="We bring to the table a combination of deep industry knowledge and expert perspectives from other industries."
         image="/images/photos/practice-hero.jpg"
         alt="Advisers in a client meeting"

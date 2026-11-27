@@ -16,7 +16,7 @@ export default function TeamPage() {
       <PhotoHeader
         crumbs={[{ href: "/", label: "Home" }, { label: "Our Team" }]}
         kicker="The people behind the firm"
-        title="Our team"
+        title="Our Team"
         intro="A close-knit team of legal, financial and client-relations professionals, mentored by our Managing Partner."
         image="/images/photos/team-hero.jpg"
         alt=""

@@ -10,7 +10,7 @@ export default function NotFound() {
         <ButtonLink href="/" variant="primary">
           Home
         </ButtonLink>
-        <ButtonLink href="/practice-areas">Practice areas</ButtonLink>
+        <ButtonLink href="/practice-areas">Practice Areas</ButtonLink>
         <ButtonLink href="/contacts">Contact us</ButtonLink>
       </div>
     </section>

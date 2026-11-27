@@ -10,7 +10,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
   return (
     <div className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16">
       <div className="flex flex-col">
-        <h2 className="h2">What our clients say</h2>
+        <h2 className="h2">What Our Clients Say</h2>
         <div className="mt-6 flex items-center gap-2.5 md:mt-auto">
           <button type="button" className="btn-round" onClick={() => setI(i - 1)} disabled={i === 0} aria-label="Previous">
             <span aria-hidden>←</span>

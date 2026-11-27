@@ -32,7 +32,7 @@ export default function JoinPage() {
       <PhotoHeader
         crumbs={[{ href: "/", label: "Home" }, { label: "Join Us" }]}
         kicker="Careers and pupillage"
-        title="Join us"
+        title="Join Us"
         intro="Our success depends on the success of our team. We are committed to attracting, developing and retaining talented people whose skill, experience and perspective help us serve our clients well."
         image="/images/photos/careers-hero.jpg"
         alt=""
@@ -48,7 +48,7 @@ export default function JoinPage() {
 
       <section className="container-page py-14 md:py-[72px]">
         <div className={row}>
-          <h2 className="h3">Our culture</h2>
+          <h2 className="h3">Our Culture</h2>
           <div className="max-w-2xl space-y-4 text-[1.0625rem] text-body">
             <p>
               Our team comprises well-rounded, innovative people with bright legal minds who uphold the virtues of love and
@@ -63,7 +63,7 @@ export default function JoinPage() {
         </div>
 
         <div className={row}>
-          <h2 className="h3">Open positions</h2>
+          <h2 className="h3">Open Positions</h2>
           <div className="max-w-2xl text-[1.0625rem] text-body">
             {openRoles.length === 0 ? (
               <p>
@@ -103,7 +103,7 @@ export default function JoinPage() {
         </div>
 
         <div className={row}>
-          <h2 className="h3">How to apply</h2>
+          <h2 className="h3">How to Apply</h2>
           <div className="max-w-2xl text-[1.0625rem] text-body">
             <p>Your application should include at the minimum:</p>
             <ol className="mt-3 list-decimal space-y-1.5 pl-5 marker:text-bordeaux">

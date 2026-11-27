@@ -120,7 +120,7 @@ export default async function ProfilePage({ params }: Props) {
 
             {m.qualifications && m.qualifications.length > 0 && (
               <div className="mt-12">
-                <h2 className={sectionHeading}>Academic qualifications</h2>
+                <h2 className={sectionHeading}>Academic Qualifications</h2>
                 <ul className="mt-4 border-t border-ink">
                   {m.qualifications.map((q) => (
                     <li key={q.title} className="grid gap-1 border-b border-line py-3.5 sm:grid-cols-[8rem_1fr] sm:gap-6">
@@ -134,7 +134,7 @@ export default async function ProfilePage({ params }: Props) {
 
             {m.timeline.length > 0 && (
               <div className="mt-12">
-                <h2 className={sectionHeading}>Career history</h2>
+                <h2 className={sectionHeading}>Career History</h2>
                 <ol className="mt-4 border-t border-ink">
                   {m.timeline.map((t) => (
                     <li key={t.year + t.text} className="grid gap-1 border-b border-line py-3.5 sm:grid-cols-[8rem_1fr] sm:gap-6">
@@ -148,7 +148,7 @@ export default async function ProfilePage({ params }: Props) {
 
             {m.awards && m.awards.length > 0 && (
               <div className="mt-12">
-                <h2 className={sectionHeading}>Awards and recognition</h2>
+                <h2 className={sectionHeading}>Awards and Recognition</h2>
                 <ul className="mt-4 border-t border-ink">
                   {m.awards.map((a) => (
                     <li key={a.text} className="grid gap-1 border-b border-line py-3.5 sm:grid-cols-[8rem_1fr] sm:gap-6">
@@ -162,7 +162,7 @@ export default async function ProfilePage({ params }: Props) {
 
             {(m.phone || m.email) && (
               <div className="mt-12">
-                <h2 className={sectionHeading}>Direct contact</h2>
+                <h2 className={sectionHeading}>Direct Contact</h2>
                 <dl className="mt-4 grid gap-6 border-t border-ink pt-5 sm:grid-cols-2">
                   {m.phone && (
                     <div>
@@ -190,7 +190,7 @@ export default async function ProfilePage({ params }: Props) {
 
             {focus.length > 0 && (
               <div className="mt-12">
-                <h2 className={sectionHeading}>Practice focus</h2>
+                <h2 className={sectionHeading}>Practice Focus</h2>
                 <ul className="mt-4 space-y-2">
                   {focus.map((p) => (
                     <li key={p.slug}>
@@ -210,7 +210,7 @@ export default async function ProfilePage({ params }: Props) {
 
       <section className="border-t border-line">
         <div className="container-page py-12 md:py-14">
-          <h2 className="h3">Also on the team</h2>
+          <h2 className="h3">Also on the Team</h2>
           <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {others.map((o) => (
               <li key={o.slug}>

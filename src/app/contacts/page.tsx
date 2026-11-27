@@ -65,7 +65,7 @@ export default function ContactsPage() {
             ))}
           </dl>
           <div className="rounded-xl border border-line bg-white p-6 shadow-[0_1px_2px_rgba(28,26,25,0.04),0_18px_40px_-28px_rgba(116,36,31,0.28)] sm:p-9">
-            <h2 className="h3">Send us a message</h2>
+            <h2 className="h3">Send Us a Message</h2>
             <p className="mt-1.5 mb-8 text-[0.9375rem] text-stone">
               We reply within one business day. Fields marked <span className="text-bordeaux">*</span> are required.
             </p>

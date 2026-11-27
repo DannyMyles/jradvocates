@@ -11,5 +11,5 @@ export function generateStaticParams() {
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const area = getPracticeArea((await params).slug);
-  return renderOg({ eyebrow: "Practice area", title: area?.title ?? "Practice areas" });
+  return renderOg({ eyebrow: "Practice area", title: area?.title ?? "Practice Areas" });
 }

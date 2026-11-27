@@ -17,7 +17,7 @@ const UPDATED = "25 November 2026";
 const sections: { id: string; title: string; body: React.ReactNode }[] = [
   {
     id: "who-we-are",
-    title: "Who we are",
+    title: "Who We Are",
     body: (
       <p>
         This website is operated by {site.name} (“JR Advocates”, “we”, “us”), {site.address.lines.join(", ")}. We are the data
@@ -28,7 +28,7 @@ const sections: { id: string; title: string; body: React.ReactNode }[] = [
   },
   {
     id: "what-we-collect",
-    title: "What we collect and why",
+    title: "What We Collect and Why",
     body: (
       <>
         <p>We only collect personal data that you choose to give us, or that is needed to run the website:</p>
@@ -60,7 +60,7 @@ const sections: { id: string; title: string; body: React.ReactNode }[] = [
   },
   {
     id: "cookies",
-    title: "Cookies and similar technologies",
+    title: "Cookies and Similar Technologies",
     body: (
       <>
         <p>This website does not use advertising or analytics cookies. It stores two small items in your browser:</p>
@@ -80,7 +80,7 @@ const sections: { id: string; title: string; body: React.ReactNode }[] = [
   },
   {
     id: "sharing",
-    title: "Who we share data with",
+    title: "Who We Share Data With",
     body: (
       <>
         <p>We do not sell your personal data. We share it only with service providers who help us run the website:</p>
@@ -99,7 +99,7 @@ const sections: { id: string; title: string; body: React.ReactNode }[] = [
   },
   {
     id: "retention",
-    title: "How long we keep data",
+    title: "How Long We Keep Data",
     body: (
       <p>
         We keep enquiries only as long as needed to respond and, where you become a client, for the periods required by law
@@ -109,7 +109,7 @@ const sections: { id: string; title: string; body: React.ReactNode }[] = [
   },
   {
     id: "your-rights",
-    title: "Your rights",
+    title: "Your Rights",
     body: (
       <>
         <p>Under the Data Protection Act, 2019 you have the right to:</p>
@@ -133,7 +133,7 @@ const sections: { id: string; title: string; body: React.ReactNode }[] = [
   },
   {
     id: "changes",
-    title: "Changes to this policy",
+    title: "Changes to This Policy",
     body: <p>We may update this policy from time to time. The date at the top shows when it last changed.</p>,
   },
 ];
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
     <>
       <PageHeader
         crumbs={[{ href: "/", label: "Home" }, { label: "Privacy Policy" }]}
-        title="Privacy policy"
+        title="Privacy Policy"
         intro={`How we handle personal data collected through this website. Last updated ${UPDATED}.`}
       />
       <section className="container-page pb-14 md:pb-[72px]">
