@@ -186,7 +186,7 @@ export function ContactForm() {
           {status.message}
         </p>
       )}
-      <button type="submit" disabled={status.state === "sending"} className="btn btn-primary mt-1 w-full justify-between">
+      <button type="submit" disabled={status.state === "sending"} className="btn btn-primary mt-1 w-full justify-between sm:w-auto sm:justify-self-end">
         {status.state === "sending" ? "Sending…" : "Send message"}
         <BtnBadge />
       </button>
